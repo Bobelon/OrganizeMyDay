@@ -6,15 +6,10 @@ import javax.swing.JFrame;
 
 public class Window extends JFrame {
 	
-	private int desktopWidth;
-	private int desktopHeight;
+	public static int DESKTOP_WIDTH = (int) GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds().getWidth();
+	public static int DESKTOP_HEIGHT = (int) GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds().getHeight();
 	
 	public Window() {
-		
-		// Wymiary ekranu
-			Rectangle desktopSize = GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds();
-			desktopWidth = (int) desktopSize.getWidth();
-			desktopHeight = (int) desktopSize.getHeight();
 			
 		// W³aœciwoœci okna
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -22,7 +17,7 @@ public class Window extends JFrame {
 			setExtendedState(JFrame.MAXIMIZED_BOTH);
 			
 		// Dodawanie panelów	
-			getContentPane().add(BorderLayout.NORTH, new InfoPanel());
+			getContentPane().add(BorderLayout.NORTH, InfoPanel.getInstance());
 			getContentPane().add(BorderLayout.EAST, new Menu());
 			
 			setVisible(true);

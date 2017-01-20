@@ -8,6 +8,11 @@ public class Task implements Serializable {
 	private int time;
 	private Date toastDate;
 	
+	public Task (String name, String description) {
+		this.name = name;
+		this.description = description;
+	}
+	
 	public String getName() {
 		return name;
 	}
